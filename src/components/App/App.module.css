@@ -1,0 +1,36 @@
+.App {
+  text-align: center;
+  background-color:#a5ccff
+}
+
+.title {
+  background-color: #135bea;
+  min-height: 10vh;
+  max-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.resultsContainer {
+  display: inline-flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.searchResults {
+  display: flex;
+  text-align: center;
+
+}
+
+.newPlaylist {
+  display: flex;
+  text-align: center;
+
+}
+
+

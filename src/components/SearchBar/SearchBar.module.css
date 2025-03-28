@@ -1,0 +1,29 @@
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchBar {
+    width: 50%;
+    height: 20px;
+    margin: 20px;
+}
+
+.submitButton {
+    background-color: rgb(17, 221, 214);
+    color: #fff;
+    border: 2px solid rgb(17, 221, 214);
+    border-radius: 10px;
+    font-size: 18px;
+}
+  
+.submitButton:hover {
+    background-color: #12a0dd;
+    transition: background-color .15s, font-size .15s;
+    font-size: 18px;
+}
+  
+.submitButton:active {
+    border-color: #fff;
+}

@@ -1,0 +1,15 @@
+.searchResults {
+    width:100%;
+    overflow-y:scroll;
+
+}
+
+.searchResults h2 {
+    margin: 15px 0;
+    font-size: 25px;
+}
+
+.Tracklist {
+    position:fixed;
+    top: 300px;
+}

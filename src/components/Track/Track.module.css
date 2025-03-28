@@ -1,0 +1,27 @@
+.TrackContainer {
+    display: inline-flex;
+    width:100%;
+    justify-content: center;
+    border-bottom: 1px solid rgb(29, 95, 146);
+}
+
+.Tracks {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+}
+
+.Tracks h2 {
+    margin-bottom: 2px;
+}
+
+.Tracks p {
+    margin:auto;
+}
+
+.playlistButton {
+    border: 0;
+    align-self: center;
+}

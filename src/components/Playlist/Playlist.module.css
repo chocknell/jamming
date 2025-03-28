@@ -1,0 +1,86 @@
+.PlaylistContainer {
+    width:100%;
+    overflow-y:scroll;
+
+}
+
+.NameGroup {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 50%;
+  }
+
+.PlaylistName {
+    font-family:inherit;
+    width: 450px;
+    height: 25px;
+    margin: 15px 0;
+    background:transparent;
+    border:0;
+    border-bottom: 2px solid gray;
+    outline:0;
+    font-size: 20px;
+    font-weight: bold;
+    transition: border-color 0.2s;
+
+    &::placeholder {
+        color: transparent;
+    }
+
+    &:placeholder-shown ~ .NameLabel {
+        font-size: 1.3rem;
+        cursor: text;
+        top: 20px;
+    }
+}
+
+.NameLabel {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: gray;
+  }
+  
+.PlaylistName:focus {
+    ~ .NameLabel {
+      position: absolute;
+      top: 0;
+      display: block;
+      transition: 0.2s;
+      font-size: 1rem;
+      color: #181199;
+      font-weight:700;    
+    }
+    padding-bottom: 6px;  
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #181199,#a938ef);
+    border-image-slice: 1;
+  }
+
+  /* reset input */
+.PlaylistName {
+    &:required,&:invalid { box-shadow:none; }
+}
+
+.submitButton {
+    background-color: rgb(20, 17, 221);
+    color: #fff;
+    border: 2px solid rgb(20, 17, 221);
+    border-radius: 5px;
+    font-size: 24px;
+    cursor: pointer;
+}
+  
+.submitButton:hover {
+    background-color: #12a0dd;
+    transition: background-color .1s;
+    font-size: 24px;
+}
+  
+.submitButton:active {
+    border-color: #fff;
+}
