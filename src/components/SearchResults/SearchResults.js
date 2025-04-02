@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Tracklist from '../Tracklist/Tracklist';
 
 // import styling sheet
@@ -9,10 +9,12 @@ function SearchResults(props) {
     return (
         <div className={styles.searchResults}>
             <h2>Search Results</h2>
-            <Tracklist 
-                tracks={props.searchResults} 
-                onAdd={props.onAdd} 
-            />
+            <div className={styles.tracklist}>
+                <Tracklist 
+                    tracks={props.searchResults} 
+                    onAdd={props.onAdd} 
+                />
+            </div>
         </div>
     );
 };

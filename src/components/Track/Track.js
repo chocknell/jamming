@@ -26,14 +26,14 @@ function Track(props) {
     const renderButton = () => {
         if (props.isRemoval) {
             return (
-                <button onClick={removeTrack}>
-                    -
+                <button onClick={removeTrack} className={styles.buttonRemove}>
+                     - 
                 </button>
             )
         } else {
             return (
-                <button onClick={addTrack}>
-                    +
+                <button onClick={addTrack} className={styles.buttonAdd}>
+                     + 
                 </button>
             )
         }
@@ -43,7 +43,7 @@ function Track(props) {
     return (
         <div className={styles.TrackContainer}>
             <div className={styles.Tracks}>
-                <h2>{props.track.name}</h2>
+                <h3>{props.track.name}</h3>
                 <p>
                     {props.track.artist} || {props.track.album}
                 </p>

@@ -28,18 +28,13 @@ function Playlist(props) {
                 />
                 <label htmlFor="name" className={styles.NameLabel}>Playlist Title</label>
             </div>
-            <Tracklist 
-                tracks={props.playlistTracks}
-                onRemove={props.onRemove}
-                isRemoval={true}
-                className={styles.Tracklist}
-            />
-            <button 
-                className={styles.submitButton}
-                onClick={props.onSave}
-            >
-                Add to Spotify!
-            </button>
+            <div className={styles.tracklist}>
+                <Tracklist 
+                    tracks={props.playlistTracks}
+                    onRemove={props.onRemove}
+                    isRemoval={true}
+                />
+            </div>
         </div>
     );
 };

@@ -1,5 +1,5 @@
 // import libraries
-import React, {useState, useCallback, useEffect} from 'react';
+import React, { useState, useCallback } from 'react';
 
 // import relevant components
 import Playlist from '../Playlist/Playlist';
@@ -15,7 +15,7 @@ import styles from './App.module.css';
 function App() {
 
   // define base states required for app
-  const [search, setSearch] = useState('hello');
+  const [search, setSearch] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [playlistTitle, setPlaylistTitle] = useState("New Playlist");
   const [playlistTracks, setPlaylistTracks] = useState([]);
@@ -23,15 +23,15 @@ function App() {
 
   // define app methods
 
-  // spotify authorization
-  async function loginWithSpotifyClick() {
-    await redirectToSpotifyAuthorize();
-  };
-
   //spotify search
   
   const handleSubmit = async (error) => {
     error.preventDefault();
+
+    if (!search) {
+      return;
+    }
+
     let accessToken = localStorage.getItem('access_token');
     console.log('AccessToken: ' + accessToken);
 
@@ -76,7 +76,18 @@ function App() {
 
   // save playlist uris
   const savePlaylist = async () => {
+
+    if (playlistTitle==="New Playlist" || playlistTitle==="") {
+      alert('Please enter a valid name for your playlist');
+      return;
+    }
     const playlistUris = playlistTracks.map((track) => track.uri);
+
+    if (playlistUris.length===0) {
+      alert('Your playlist is empty! Add some tracks before saving it to Spotify.');
+      return;
+    }
+
     await createPlaylist(playlistTitle, playlistUris).then(() => {
       alert(`New Playlist ${playlistTitle} has been created!`);
       setPlaylistTitle('New Playlist');
@@ -87,8 +98,7 @@ function App() {
   return (
     <div className={styles.App}>
       <header className={styles.title}>
-        <h1>Jamming Spotify Web App</h1>
-        <button onClick={loginWithSpotifyClick}>Log In</button>
+        <h1>Spotify Playlist Creator</h1>
       </header>
       <SearchBar 
         search={search}
@@ -111,6 +121,14 @@ function App() {
             onSave={savePlaylist}
           />
         </div>
+      </div>
+      <div className={styles.footer}>
+      <button 
+        className={styles.submitButton}
+        onClick={savePlaylist}
+      >
+        Add {playlistTitle} to Spotify!
+      </button>
       </div>
     </div>
   );

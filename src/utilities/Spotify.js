@@ -1,4 +1,4 @@
-const clientId = "33dce9b5fcf5409f9932dd6bbab1791e";
+const clientId = "___Insert_ClientID_Here___";
 const redirectUri = 'http://localhost:3000/';
 
 const authorizationEndpoint = "https://accounts.spotify.com/authorize";
@@ -71,6 +71,7 @@ export async function getToken(code) {
     });
   
     const data = await response.json();
+    console.log(data);
 
     if (data.access_token) {
         localStorage.setItem("access_token", data.access_token);
@@ -78,9 +79,9 @@ export async function getToken(code) {
         // store expiration time 
         const expirationTime = Date.now() + 3600 * 1000; // 1 heure
         localStorage.setItem("token_expiration", expirationTime);
-        alert("Access token and refresh token stored.");
+        console.log("Access token and refresh token stored.");
       } else {
-        alert("Error in gathering the token information:" + data.access_token);
+        console.log("Error in gathering the token information:" + data.access_token);
       };
 
 };
@@ -88,8 +89,10 @@ export async function getToken(code) {
 export async function refreshToken() {
 
     const refreshToken = localStorage.getItem("refresh_token");
+    console.log('Refresh Token: ' + refreshToken);
+
     if (!refreshToken) {
-        alert("The refresh token is missing. Re-authorise the app.");
+        console.log("The refresh token is missing. Re-authorise the app.");
         return;
       };
 
@@ -166,7 +169,7 @@ export async function spotifySearch(string) {
     const spotifyUrl = "https://api.spotify.com/v1/search?"
     const searchTerm = string.replaceAll(" ","+");
     const searchUrl = `q=${searchTerm}`;
-    const searchParams = '&type=track&limit=5'
+    const searchParams = '&type=track&limit=10'
     const endpoint = `${spotifyUrl}${searchUrl}${searchParams}`;
     const authStatement = `Bearer ${accessToken}`;
 
@@ -252,18 +255,6 @@ export const handleRedirect = async () => {
 
 };
 
+// run on initial loading of the app
+handleRedirect();
 
-// Click handlers
-async function loginWithSpotifyClick() {
-    await redirectToSpotifyAuthorize();
-};
-  
-async function logoutClick() {
-    localStorage.clear();
-    window.location.href = redirectUri;
-};
-  
-async function refreshTokenClick() {
-    const token = await refreshToken();
-    localStorage.setItem('access_token', token);
-};

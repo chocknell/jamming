@@ -11,16 +11,17 @@
 }
 
 .submitButton {
-    background-color: rgb(17, 221, 214);
+    background-color: rgb(20, 17, 221);
     color: #fff;
-    border: 2px solid rgb(17, 221, 214);
+    border: 2px solid rgb(20, 17, 221);
     border-radius: 10px;
     font-size: 18px;
 }
   
 .submitButton:hover {
-    background-color: #12a0dd;
-    transition: background-color .15s, font-size .15s;
+    background-color: #a5ccff;
+    color: rgb(20, 17, 221);
+    transition: background-color .15s, font-size .15s, color .15s;
     font-size: 18px;
 }
   

@@ -30,7 +30,6 @@ function SearchBar(props) {
                 />
                 <button type="submit" className={styles.submitButton}>Search</button>
             </form>
-            {props.search}
         </div>
     )
 
