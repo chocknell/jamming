@@ -26,7 +26,7 @@ function Playlist(props) {
                     id="name"
                     name="name"
                 />
-                <label for="name" className={styles.NameLabel}>Playlist Title</label>
+                <label htmlFor="name" className={styles.NameLabel}>Playlist Title</label>
             </div>
             <Tracklist 
                 tracks={props.playlistTracks}

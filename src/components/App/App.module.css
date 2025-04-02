@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  background-color:#a5ccff
+  background-color:#a5ccff;
+  height: 100vh;
 }
 
 .title {

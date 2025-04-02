@@ -9,7 +9,7 @@ function Tracklist(props) {
 
     return (
         <div className={styles.list}>
-            {props.tracks?.map((track) => {
+            {props.tracks.map((track, i) => {
                 return (
                     <Track 
                         track={track}
@@ -17,8 +17,7 @@ function Tracklist(props) {
                         onAdd={props.onAdd}
                         onRemove={props.onRemove}
                         isRemoval={props.isRemoval}
-                    />
-                );
+                    /> )
             })}
         </div>
     );

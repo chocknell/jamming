@@ -1,30 +1,36 @@
-import React, {useState} from 'react';
+import React, {useState, useCallback} from 'react';
 
 // import styling sheet
 import styles from './SearchBar.module.css';
 
-function SearchBar() {
+function SearchBar(props) {
 
-    const [text, setText] = useState("");
+    //const [text, setText] = useState("");
 
     function handleTextChange(e) {
-        setText(e.target.value);
-    };
+        props.setSearch(e.target.value);
+    }
+
+    /*
+    const search = useCallback(() => {
+        props.onSearch(props.search);
+    }, [props.onSearch, props.search]);
+    */
 
     return (
         <div>
-            <form className={styles.search}>
+            <form className={styles.search} onSubmit={props.handleSubmit}>
                 <input 
                     type="text"
-                    value={text}
                     aria-label="Search for a song..."
                     placeholder="Search for a song..."
                     onChange={handleTextChange}
                     className={styles.searchBar}
+                    value={props.search}
                 />
                 <button type="submit" className={styles.submitButton}>Search</button>
             </form>
-            {text}
+            {props.search}
         </div>
     )
 
